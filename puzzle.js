@@ -19,7 +19,7 @@ class Puzzle {
   get columns() {
     // First `map` cycles through the number of columns as an index `i`.
     // Second `map` cycles picks out the correct number in each row to insert into the column.
-    return this.puzzle[0].map((_, i) => this.puzzle.map(row => row[i]));
+    return this.rows[0].map((_, i) => this.rows.map(row => row[i]));
   }
 }
 
