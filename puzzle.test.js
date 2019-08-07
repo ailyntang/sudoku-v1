@@ -44,6 +44,7 @@ describe('the puzzle elements', () => {
 
 describe('a puzzle', () => {
   let puzzle = new Puzzle();
+
   it('should have nine rows', () => {
     expect(puzzle.rows).toHaveLength(9);
   });
@@ -51,21 +52,19 @@ describe('a puzzle', () => {
   it('should have nine columns', () => {
     expect(puzzle.columns).toHaveLength(9);
   });
-});
 
-describe('an incomplete puzzle', () => {
-  it('can have multiple zeros', () => {
+  describe('an incomplete puzzle', () => {
+    it('can have multiple zeros', () => {
 
+    });
   });
-});
 
-describe('an empty puzzle', () => {
-  let puzzle = new Puzzle();
-
-  it('should have zeros for every number', () => {
-    puzzle.rows.forEach((row) => {
-      row.forEach((num) => {
-        expect(num).toBe(0);
+  describe('an empty puzzle', () => {
+    it('should have zeros for every number', () => {
+      puzzle.rows.forEach((row) => {
+        row.forEach((num) => {
+          expect(num).toBe(0);
+        });
       });
     });
   });
