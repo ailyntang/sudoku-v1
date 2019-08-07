@@ -1,7 +1,7 @@
 class Puzzle {
   constructor(input) {
     if (input === undefined) {
-      const row = [0,0,0,0,0,0,0,0,0];
+      const row = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       this.puzzle = [row, row, row, row, row, row, row, row, row];
     } else {
       this.puzzle = input;
