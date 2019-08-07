@@ -31,6 +31,18 @@ describe('a row or column', () => {
   });
 });
 
+describe('a column', () => {
+  const row = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const puzzle = new Puzzle([row, row, row, row, row, row, row, row, row]);
+  const col1 = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const col5 = [5, 5, 5, 5, 5, 5, 5, 5, 5];
+
+  it('should transpose a row', () => {
+    expect(puzzle.columns[1]).toStrictEqual(col1);
+    expect(puzzle.columns[5]).toStrictEqual(col5);
+  });
+});
+
 describe('a number', () => {
   const puzzle = new Puzzle;
 
