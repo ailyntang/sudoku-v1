@@ -21,6 +21,13 @@ class Puzzle {
     // Second `map` cycles picks out the correct number in each row to insert into the column.
     return this.rows[0].map((_, i) => this.rows.map(row => row[i]));
   }
+
+  hasAllNineNumbers(array) {
+    const expectedOutput = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    array.sort((a, b) => a - b);
+
+    return JSON.stringify(array) == JSON.stringify(expectedOutput);
+  }
 }
 
 module.exports = Puzzle;
