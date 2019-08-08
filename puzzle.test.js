@@ -53,49 +53,57 @@ describe('the puzzle elements', () => {
 
     describe('house 2', () => {
       it('should contain the middle three numbers of the first three rows', () => {
-
+        const expected = [2, 9, 3, 5, 6, 4, 7, 8, 1];
+        expect(completedPuzzle.houses[1]).toStrictEqual(expected);
       });
     });
 
     describe('house 3', () => {
       it('should contain the last three numbers of the first three rows', () => {
-
+        const expected = [1, 8, 6, 7, 3, 2, 5, 4, 9];
+        expect(completedPuzzle.houses[2]).toStrictEqual(expected);
       });
     });
 
     describe('house 4', () => {
       it('should contain the first three numbers of the middle three rows', () => {
-
+        const expected = [2, 4, 9, 3, 8, 1, 7, 6, 5];
+        expect(completedPuzzle.houses[3]).toStrictEqual(expected);
       });
     });
 
     describe('house 5', () => {
       it('should contain the middle three numbers of the middle three rows', () => {
-
+        const expected = [6, 1, 5, 9, 2, 7, 4, 3, 8];
+        expect(completedPuzzle.houses[4]).toStrictEqual(expected);
       });
     });
 
     describe('house 6', () => {
       it('should contain the last three numbers of the middle three rows', () => {
-
+        const expected = [8, 7, 3, 6, 5, 4, 9, 2, 1];
+        expect(completedPuzzle.houses[5]).toStrictEqual(expected);
       });
     });
 
     describe('house 7', () => {
       it('should contain the first three numbers of the last three rows', () => {
-
+        const expected = [9, 3, 6, 5, 7, 2, 8, 1, 4];
+        expect(completedPuzzle.houses[6]).toStrictEqual(expected);
       });
     });
 
     describe('house 8', () => {
       it('should contain the middle three numbers of the last three rows', () => {
-
+        const expected = [8, 7, 2, 1, 4, 6, 3, 5, 9];
+        expect(completedPuzzle.houses[7]).toStrictEqual(expected);
       });
     });
 
     describe('house 9', () => {
       it('should contain the last three numbers of the last three rows', () => {
-
+        const expected = [4, 1, 5, 3, 9, 8, 2, 6, 7];
+        expect(completedPuzzle.houses[8]).toStrictEqual(expected);
       });
     });
   });
