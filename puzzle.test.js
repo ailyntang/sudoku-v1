@@ -125,7 +125,7 @@ describe('a puzzle', () => {
   });
 
   describe('an incomplete puzzle', () => {
-    it('can have multiple zeros', () => {
+    it('should have multiple zeros', () => {
 
     });
   });
