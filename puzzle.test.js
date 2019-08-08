@@ -124,6 +124,10 @@ describe('a puzzle', () => {
     expect(puzzle.columns).toHaveLength(9);
   });
 
+  it('should have nine houses', () => {
+    expect(puzzle.houses).toHaveLength(9);
+  });
+
   describe('a completed puzzle', () => {
     it('should have 1-9 in every row', () => {
 
