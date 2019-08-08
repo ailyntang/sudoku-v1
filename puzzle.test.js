@@ -29,14 +29,14 @@ describe('the puzzle elements', () => {
   });
 
   describe('a column', () => {
-    const row = [9, 1, 2, 3, 4, 5, 6, 7, 8];
-    const puzzle = new Puzzle([row, row, row, row, row, row, row, row, row]);
-    const col1 = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-    const col5 = [5, 5, 5, 5, 5, 5, 5, 5, 5];
+    it('should have nine numbers', () => {
+      expect(completedPuzzle.columns[3]).toHaveLength(9);
+    });
 
     it('should transpose a row', () => {
-      expect(puzzle.columns[1]).toStrictEqual(col1);
-      expect(puzzle.columns[5]).toStrictEqual(col5);
+      expect(completedPuzzle.columns[0]).toStrictEqual([4, 1, 6, 2, 3, 7, 9, 5, 8]);
+      expect(completedPuzzle.columns[2]).toStrictEqual([7, 8, 3, 9, 1, 5, 6, 2, 4]);
+      expect(completedPuzzle.columns[8]).toStrictEqual([6, 2, 9, 3, 4, 1, 5, 8, 7]);
     });
   });
 
