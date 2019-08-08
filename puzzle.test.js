@@ -16,14 +16,15 @@ const completedPuzzle = new Puzzle([
 describe('the puzzle elements', () => {
 
   // Do I want this to be immutable or mutable?
-  describe('a row, column and house', () => {
-    const puzzle = new Puzzle();
-    const row = puzzle.rows[0];
-    const col = puzzle.columns[0];
-
+  describe('a row', () => {
     it('should have nine numbers', () => {
-      expect(row).toHaveLength(9);
-      expect(col).toHaveLength(9);
+      expect(completedPuzzle.rows[4]).toHaveLength(9);
+    });
+
+    it('should convert the puzzle input into rows', () => {
+      expect(completedPuzzle.rows[0]).toStrictEqual([4, 5, 7, 2, 9, 3, 1, 8, 6]);
+      expect(completedPuzzle.rows[5]).toStrictEqual([7, 6, 5, 4, 3, 8, 9, 2, 1]);
+      expect(completedPuzzle.rows[7]).toStrictEqual([5, 7, 2, 1, 4, 6, 3, 9, 8]);
     });
   });
 
