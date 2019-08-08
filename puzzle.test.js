@@ -31,6 +31,67 @@ describe('the puzzle elements', () => {
     });
   });
 
+  describe('the houses', () => {
+    it('should have nine numbers', () => {
+      expect(completedPuzzle.houses[4]).toHaveLength(9);
+    });
+
+    describe('house 1', () => {
+      it('should contain the first three numbers of the first three rows', () => {
+        const expected = [4, 5, 7, 1, 9, 8, 6, 2, 3];
+        expect(completedPuzzle.houses[0]).toStrictEqual(expected);
+      });
+    });
+
+    describe('house 2', () => {
+      it('should contain the middle three numbers of the first three rows', () => {
+
+      });
+    });
+
+    describe('house 3', () => {
+      it('should contain the last three numbers of the first three rows', () => {
+
+      });
+    });
+
+    describe('house 4', () => {
+      it('should contain the first three numbers of the middle three rows', () => {
+
+      });
+    });
+
+    describe('house 5', () => {
+      it('should contain the middle three numbers of the middle three rows', () => {
+
+      });
+    });
+
+    describe('house 6', () => {
+      it('should contain the last three numbers of the middle three rows', () => {
+
+      });
+    });
+
+    describe('house 7', () => {
+      it('should contain the first three numbers of the last three rows', () => {
+
+      });
+    });
+
+    describe('house 8', () => {
+      it('should contain the middle three numbers of the last three rows', () => {
+
+      });
+    });
+
+    describe('house 9', () => {
+      it('should contain the last three numbers of the last three rows', () => {
+
+      });
+    });
+  });
+
   describe('a number', () => {
     const puzzle = new Puzzle;
 
