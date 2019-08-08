@@ -28,7 +28,7 @@ describe('the puzzle elements', () => {
   });
 
   describe('a column', () => {
-    const row = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    const row = [9, 1, 2, 3, 4, 5, 6, 7, 8];
     const puzzle = new Puzzle([row, row, row, row, row, row, row, row, row]);
     const col1 = [1, 1, 1, 1, 1, 1, 1, 1, 1];
     const col5 = [5, 5, 5, 5, 5, 5, 5, 5, 5];
