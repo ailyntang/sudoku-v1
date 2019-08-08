@@ -20,12 +20,10 @@ describe('the puzzle elements', () => {
     const puzzle = new Puzzle();
     const row = puzzle.rows[0];
     const col = puzzle.columns[0];
-    const house = puzzle.houses[0];
 
     it('should have nine numbers', () => {
       expect(row).toHaveLength(9);
       expect(col).toHaveLength(9);
-      expect(house).toHaveLength(9);
     });
   });
 
