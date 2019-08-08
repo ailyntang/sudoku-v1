@@ -17,7 +17,7 @@ describe('the puzzle elements', () => {
 
   // Do I want this to be immutable or mutable?
   describe('a row, column and house', () => {
-    const puzzle = new Puzzle;
+    const puzzle = new Puzzle();
     const row = puzzle.rows[0];
     const col = puzzle.columns[0];
     const house = puzzle.houses[0];
