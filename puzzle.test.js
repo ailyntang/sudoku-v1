@@ -124,6 +124,21 @@ describe('a puzzle', () => {
     expect(puzzle.columns).toHaveLength(9);
   });
 
+  describe('a completed puzzle', () => {
+    it('should have 1-9 in every row', () => {
+
+    });
+
+    it('should have 1-9 in every column', () => {
+
+    });
+
+    it('should have 1-9 in every house', () => {
+
+    });
+
+  });
+
   describe('an incomplete puzzle', () => {
     it('should have multiple zeros', () => {
 
