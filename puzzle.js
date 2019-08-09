@@ -84,6 +84,22 @@ class Puzzle {
 
     return JSON.stringify(copy) === JSON.stringify(expectedOutput);
   }
+
+  isPuzzleComplete() {
+    for (let i = 0; i < 9; i += 1) {
+      if (!this.hasAllNineNumbers(this.rows[i])) {
+        return false;
+      }
+      if (!this.hasAllNineNumbers(this.columns[i])) {
+        return false;
+      }
+      if (!this.hasAllNineNumbers(this.houses[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
 
 module.exports = Puzzle;
