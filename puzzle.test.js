@@ -149,20 +149,7 @@ describe('a puzzle', () => {
     expect(puzzle.houses).toHaveLength(9);
   });
 
-  describe('a completed puzzle', () => {
-    it('should have 1-9 in every row', () => {
 
-    });
-
-    it('should have 1-9 in every column', () => {
-
-    });
-
-    it('should have 1-9 in every house', () => {
-
-    });
-
-  });
 
   describe('an incomplete puzzle', () => {
     it('should have multiple zeros', () => {
@@ -178,6 +165,16 @@ describe('a puzzle', () => {
         });
       });
     });
+  });
+});
+
+describe('isPuzzleComplete()', () => {
+  it('should return true when 1-9 is in every row, column and house', () => {
+    expect(completedPuzzle.isPuzzleComplete()).toBe(true);
+  });
+
+  it('should return false when 1-9 is not in every row, column and house', () => {
+    expect(incompletePuzzle.isPuzzleComplete()).toBe(false);
   });
 });
 
