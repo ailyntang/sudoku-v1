@@ -13,6 +13,18 @@ const completedPuzzle = new Puzzle([
                                     [8, 1, 4, 3, 5, 9, 2, 6, 7]
                                     ]);
 
+ const incompletePuzzle = new Puzzle([
+                                    [0, 0, 0, 1, 0, 0, 7, 0, 2],
+                                    [0, 3, 7, 9, 5, 0, 0, 0, 0],
+                                    [0, 0, 1, 0, 0, 2, 0, 0, 3],
+                                    [5, 9, 0, 0, 0, 0, 3, 0, 1],
+                                    [0, 2, 0, 0, 0, 0, 0, 7, 0],
+                                    [7, 0, 3, 0, 0, 0, 0, 9, 8],
+                                    [8, 0, 0, 2, 0, 0, 1, 0, 0],
+                                    [0, 0, 0, 0, 8, 5, 0, 6, 0],
+                                    [6, 0, 5, 0, 0, 9, 0, 0, 0]
+                                    ]);
+
 describe('the puzzle elements', () => {
 
   // Do I want this to be immutable or mutable?
