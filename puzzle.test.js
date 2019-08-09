@@ -207,7 +207,7 @@ describe('hasAllNineNumbers()', () => {
   const puzzle = new Puzzle();
 
   it('should return true when each number from 1-9 exists in the array', () => {
-    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const array = [2, 1, 3, 5, 4, 7, 6, 8, 9];
     expect(puzzle.hasAllNineNumbers(array)).toBe(true);
   });
 
