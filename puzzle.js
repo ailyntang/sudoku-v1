@@ -9,7 +9,7 @@ class Puzzle {
   }
 
   get rows() {
-    return this.puzzle;
+    return Array.from(this.puzzle);
   }
 
   /**
@@ -79,9 +79,10 @@ class Puzzle {
 
   hasAllNineNumbers(array) {
     const expectedOutput = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    array.sort((a, b) => a - b);
+    let copy = Array.from(array);
+    copy.sort((a, b) => a - b);
 
-    return JSON.stringify(array) == JSON.stringify(expectedOutput);
+    return JSON.stringify(copy) === JSON.stringify(expectedOutput);
   }
 }
 
