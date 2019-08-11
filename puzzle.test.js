@@ -176,6 +176,26 @@ describe('isPuzzleComplete()', () => {
   });
 });
 
+// Test private functions
+describe('hasAllNineNumbers()', () => {
+  const puzzle = new Puzzle();
+
+  it('should return true when each number from 1-9 exists in the array', () => {
+    const array = [2, 1, 3, 5, 4, 7, 6, 8, 9];
+    expect(puzzle.hasAllNineNumbers(array)).toBe(true);
+  });
+
+  it('should return false when a number that is not 1-9 is present', () => {
+    const array = [11, 2, 3, 4, 5, 6, 7, 8, 9];
+    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+  });
+
+  it('should return false when a number occurs more than once', () => {
+    const array = [1, 2, 3, 4, 5, 6, 7, 7, 8];
+    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+  });
+});
+
 describe('hasValidNumbers()', () => {
   let puzzle = new Puzzle();
 
@@ -205,23 +225,4 @@ describe('hasValidNumbers()', () => {
     expect(puzzle.hasValidNumbers(input3)).toBe(false);
     expect(puzzle.hasValidNumbers(input4)).toBe(false);
   })
-});
-
-describe('hasAllNineNumbers()', () => {
-  const puzzle = new Puzzle();
-
-  it('should return true when each number from 1-9 exists in the array', () => {
-    const array = [2, 1, 3, 5, 4, 7, 6, 8, 9];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(true);
-  });
-
-  it('should return false when a number that is not 1-9 is present', () => {
-    const array = [11, 2, 3, 4, 5, 6, 7, 8, 9];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
-  });
-
-  it('should return false when a number occurs more than once', () => {
-    const array = [1, 2, 3, 4, 5, 6, 7, 7, 8];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
-  });
 });
