@@ -149,8 +149,6 @@ describe('a puzzle', () => {
     expect(puzzle.houses).toHaveLength(9);
   });
 
-
-
   describe('an incomplete puzzle', () => {
     it('should have multiple zeros', () => {
 
@@ -178,29 +176,35 @@ describe('isPuzzleComplete()', () => {
   });
 });
 
-xdescribe('isPuzzleValid()', () => {
+describe('hasValidNumbers()', () => {
   let puzzle = new Puzzle();
 
-  it('should return true or false', () => {
-
+  it('should return true when numbers 1-9 all appear once', () => {
+    const input = [3, 8, 1, 9, 2, 7, 6, 5, 4];
+    expect(puzzle.hasValidNumbers(input)).toBe(true);
   });
 
-  it('should have one number from 1-9 in each row', () => {
-    puzzle.rows.forEach((row) => {
-      expect(hasAllNineNumbers(row)).toBe(true);
-    });
+  it('should return true when numbers 1-9 occur at most once', () => {
+    const input = [8, 0, 0, 2, 0, 0, 1, 0, 0];
+    expect(puzzle.hasValidNumbers(input)).toBe(true);
   });
 
-  it('should have one number from 1-9 in each column', () => {
-    puzzle.columns.forEach((column) => {
-      expect(hasAllNineNumbers(column)).toBe(true);
-    });
+  it('should return false when numbers 1-9 occur more than once', () => {
+    const input = [7, 6, 5, 4, 7, 8, 9, 2, 1];
+    expect(puzzle.hasValidNumbers(input)).toBe(false);
   });
 
-  it('should have one number from 1-9 in each house', () => {
+  it('should return false when an invalid element is present', () => {
+    const input1 = [7, 6, 5, 4, 3, 18, 9, 2, 1];  // invalid 18
+    const input2 = [7, 6, 5, 4, 3, 8, 9, -2, 1];  // invalid -2
+    const input3 = [7, 6, 5, 4, 3, 8, 'cake', 2, 1];  // invalid 'cake'
+    const input4 = [7, 6, 5, 4, 3, 8.1, 9, 2, 1];  // invalid 8.1
 
-  });
-
+    expect(puzzle.hasValidNumbers(input1)).toBe(false);
+    expect(puzzle.hasValidNumbers(input2)).toBe(false);
+    expect(puzzle.hasValidNumbers(input3)).toBe(false);
+    expect(puzzle.hasValidNumbers(input4)).toBe(false);
+  })
 });
 
 describe('hasAllNineNumbers()', () => {
