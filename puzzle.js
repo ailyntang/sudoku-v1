@@ -77,14 +77,6 @@ class Puzzle {
     return houses;
   }
 
-  hasAllNineNumbers(array) {
-    const expectedOutput = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    let copy = Array.from(array);
-    copy.sort((a, b) => a - b);
-
-    return JSON.stringify(copy) === JSON.stringify(expectedOutput);
-  }
-
   isPuzzleComplete() {
     for (let i = 0; i < 9; i += 1) {
       if (!this.hasAllNineNumbers(this.rows[i])) {
@@ -98,6 +90,17 @@ class Puzzle {
       }
     }
     return true;
+  }
+
+  // Helper functions
+  // These should be private
+
+  hasAllNineNumbers(array) {
+    const expectedOutput = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let copy = Array.from(array);
+    copy.sort((a, b) => a - b);
+
+    return JSON.stringify(copy) === JSON.stringify(expectedOutput);
   }
 
 }
