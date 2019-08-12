@@ -176,97 +176,95 @@ describe('isPuzzleComplete()', () => {
   });
 });
 
-// Test private functions
-describe('hasAllNineNumbers()', () => {
+describe('private functions', () => {
   const puzzle = new Puzzle();
 
-  it('should return true when each number from 1-9 exists in the array', () => {
-    const array = [2, 1, 3, 5, 4, 7, 6, 8, 9];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(true);
+  describe('hasAllNineNumbers()', () => {
+    it('should return true when each number from 1-9 exists in the array', () => {
+      const array = [2, 1, 3, 5, 4, 7, 6, 8, 9];
+      expect(puzzle.hasAllNineNumbers(array)).toBe(true);
+    });
+
+    it('should return false when a number that is not 1-9 is present', () => {
+      const array = [11, 2, 3, 4, 5, 6, 7, 8, 9];
+      expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+    });
+
+    it('should return false when a number occurs more than once', () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 7, 8];
+      expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+    });
   });
 
-  it('should return false when a number that is not 1-9 is present', () => {
-    const array = [11, 2, 3, 4, 5, 6, 7, 8, 9];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+  describe('frequencyOfValues()', () => {
+    const input1 = [-3, 0, 'salsa', true];
+    const expected1 = {'-3': 1, 0: 1, salsa: 1, true: 1};
+    const input2 = ['dog', 'cat', 4, 'cat', 'dog', 4, 2, 4];
+    const expected2 = { dog: 2, cat: 2, 4: 3, 2: 1};
+
+    it('should return an empty object if there is no input', () => {
+      expect(puzzle.frequencyOfValues()).toMatchObject({});
+    });
+
+    it('should return a key for every unique element', () => {
+      expect(puzzle.frequencyOfValues(input1)).toHaveProperty('-3');
+      expect(puzzle.frequencyOfValues(input1)).toHaveProperty('0');
+      expect(puzzle.frequencyOfValues(input1)).toHaveProperty('salsa');
+      expect(puzzle.frequencyOfValues(input1)).toHaveProperty('true');
+    });
+
+    it('should return the number of times the element occurs as the value', () => {
+      expect(puzzle.frequencyOfValues(input2)).toHaveProperty('dog', 2);
+      expect(puzzle.frequencyOfValues(input2)).toHaveProperty('cat', 2);
+      expect(puzzle.frequencyOfValues(input2)).toHaveProperty('4', 3);
+      expect(puzzle.frequencyOfValues(input2)).toHaveProperty('2', 1);
+    });
+
+    it('should return an object', () => {
+      expect(puzzle.frequencyOfValues(input1)).toMatchObject(expected1);
+      expect(puzzle.frequencyOfValues(input2)).toMatchObject(expected2);
+    });
   });
 
-  it('should return false when a number occurs more than once', () => {
-    const array = [1, 2, 3, 4, 5, 6, 7, 7, 8];
-    expect(puzzle.hasAllNineNumbers(array)).toBe(false);
+  describe('hasValidNumbers()', () => {
+    it('should have nine elements in the array', () => {
+      const input1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const input2 = [2, 4];
+      const input3 = [5, 9, 0, 0, 0, 0, 3, 0, 1, 0];
+
+      expect(puzzle.hasValidNumbers(input1)).toBe(true);
+      expect(puzzle.hasValidNumbers(input2)).toBe(false);
+      expect(puzzle.hasValidNumbers(input3)).toBe(false);
+    });
+
+    it('should return true when numbers 1-9 all appear once', () => {
+      const input = [3, 8, 1, 9, 2, 7, 6, 5, 4];
+      expect(puzzle.hasValidNumbers(input)).toBe(true);
+    });
+
+    it('should return true when numbers 1-9 occur at most once', () => {
+      const input1 = [8, 0, 0, 2, 0, 0, 1, 0, 0];
+      const input2 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+      expect(puzzle.hasValidNumbers(input1)).toBe(true);
+      expect(puzzle.hasValidNumbers(input2)).toBe(true);
+    });
+
+    it('should return false when numbers 1-9 occur more than once', () => {
+      const input = [7, 6, 5, 4, 7, 8, 9, 2, 1];
+      expect(puzzle.hasValidNumbers(input)).toBe(false);
+    });
+
+    it('should return false when an invalid element is present', () => {
+      const input1 = [7, 6, 5, 4, 3, 18, 9, 2, 1];  // invalid 18
+      const input2 = [7, 6, 5, 4, 3, 8, 9, -2, 1];  // invalid -2
+      const input3 = [7, 6, 5, 4, 3, 8, 'cake', 2, 1];  // invalid 'cake'
+      const input4 = [7, 6, 5, 4, 3, 8.1, 9, 2, 1];  // invalid 8.1
+
+      expect(puzzle.hasValidNumbers(input1)).toBe(false);
+      expect(puzzle.hasValidNumbers(input2)).toBe(false);
+      expect(puzzle.hasValidNumbers(input3)).toBe(false);
+      expect(puzzle.hasValidNumbers(input4)).toBe(false);
+    })
   });
-});
-
-describe('frequencyOfValues()', () => {
-  const puzzle = new Puzzle();
-  const input1 = [-3, 0, 'salsa', true];
-  const expected1 = {'-3': 1, 0: 1, salsa: 1, true: 1};
-  const input2 = ['dog', 'cat', 4, 'cat', 'dog', 4, 2, 4];
-  const expected2 = { dog: 2, cat: 2, 4: 3, 2: 1};
-
-  it('should return an empty object if there is no input', () => {
-    expect(puzzle.frequencyOfValues()).toMatchObject({});
-  });
-
-  it('should return a key for every unique element', () => {
-    expect(puzzle.frequencyOfValues(input1)).toHaveProperty('-3');
-    expect(puzzle.frequencyOfValues(input1)).toHaveProperty('0');
-    expect(puzzle.frequencyOfValues(input1)).toHaveProperty('salsa');
-    expect(puzzle.frequencyOfValues(input1)).toHaveProperty('true');
-  });
-
-  it('should return the number of times the element occurs as the value', () => {
-    expect(puzzle.frequencyOfValues(input2)).toHaveProperty('dog', 2);
-    expect(puzzle.frequencyOfValues(input2)).toHaveProperty('cat', 2);
-    expect(puzzle.frequencyOfValues(input2)).toHaveProperty('4', 3);
-    expect(puzzle.frequencyOfValues(input2)).toHaveProperty('2', 1);
-  });
-
-  it('should return an object', () => {
-    expect(puzzle.frequencyOfValues(input1)).toMatchObject(expected1);
-    expect(puzzle.frequencyOfValues(input2)).toMatchObject(expected2);
-  });
-});
-
-describe('hasValidNumbers()', () => {
-  let puzzle = new Puzzle();
-
-  it('should have nine elements in the array', () => {
-    const input1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const input2 = [2, 4];
-    const input3 = [5, 9, 0, 0, 0, 0, 3, 0, 1, 0];
-
-    expect(puzzle.hasValidNumbers(input1)).toBe(true);
-    expect(puzzle.hasValidNumbers(input2)).toBe(false);
-    expect(puzzle.hasValidNumbers(input3)).toBe(false);
-  });
-
-  it('should return true when numbers 1-9 all appear once', () => {
-    const input = [3, 8, 1, 9, 2, 7, 6, 5, 4];
-    expect(puzzle.hasValidNumbers(input)).toBe(true);
-  });
-
-  it('should return true when numbers 1-9 occur at most once', () => {
-    const input1 = [8, 0, 0, 2, 0, 0, 1, 0, 0];
-    const input2 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-    expect(puzzle.hasValidNumbers(input1)).toBe(true);
-    expect(puzzle.hasValidNumbers(input2)).toBe(true);
-  });
-
-  it('should return false when numbers 1-9 occur more than once', () => {
-    const input = [7, 6, 5, 4, 7, 8, 9, 2, 1];
-    expect(puzzle.hasValidNumbers(input)).toBe(false);
-  });
-
-  it('should return false when an invalid element is present', () => {
-    const input1 = [7, 6, 5, 4, 3, 18, 9, 2, 1];  // invalid 18
-    const input2 = [7, 6, 5, 4, 3, 8, 9, -2, 1];  // invalid -2
-    const input3 = [7, 6, 5, 4, 3, 8, 'cake', 2, 1];  // invalid 'cake'
-    const input4 = [7, 6, 5, 4, 3, 8.1, 9, 2, 1];  // invalid 8.1
-
-    expect(puzzle.hasValidNumbers(input1)).toBe(false);
-    expect(puzzle.hasValidNumbers(input2)).toBe(false);
-    expect(puzzle.hasValidNumbers(input3)).toBe(false);
-    expect(puzzle.hasValidNumbers(input4)).toBe(false);
-  })
 });
