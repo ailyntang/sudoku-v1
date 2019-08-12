@@ -167,7 +167,6 @@ class Puzzle {
 
     for (let i = 0; i < arrayOfValues.length; i += 1) {
       if (validNumbers.indexOf(Number(arrayOfValues[i])) == -1) {
-        console.log('inside');
         return false;
       }
     }
