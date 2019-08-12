@@ -134,6 +134,46 @@ class Puzzle {
     return output;
   }
 
+  /**
+   * Tests if an input of nine numbers is valid for sudoku
+   * The input can represent an empty, incomplete or complete row
+   * Returns a boolean
+  */
+  hasValidNumbers(array) {
+    if (array.length != 9) {
+      return false;
+    }
+
+    let objFrequencies = this.frequencyOfValues(array);
+    if (objFrequencies.hasOwnProperty('0')) {
+      // Test for empty row
+      if (objFrequencies['0'] === 9) {
+        return true;
+      }
+
+      // Remove 0 as it is allowed to occur multiple times
+      delete objFrequencies['0'];
+    }
+
+    // Ensure the non-zero values occur at most once in the array
+    const arrayOfFrequencies = [...new Set(Object.values(objFrequencies))];
+    if (arrayOfFrequencies.length != 1 || arrayOfFrequencies[0] != 1) {
+      return false;
+    }
+
+    // Check the elements in the array are valid numbers
+    const validNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const arrayOfValues = [...new Set(Object.keys(objFrequencies))];
+
+    for (let i = 0; i < arrayOfValues.length; i += 1) {
+      if (validNumbers.indexOf(Number(arrayOfValues[i])) == -1) {
+        console.log('inside');
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
 
 module.exports = Puzzle;
