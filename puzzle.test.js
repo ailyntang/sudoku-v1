@@ -149,12 +149,6 @@ describe('a puzzle', () => {
     expect(puzzle.houses).toHaveLength(9);
   });
 
-  describe('an incomplete puzzle', () => {
-    it('should have multiple zeros', () => {
-
-    });
-  });
-
   describe('an empty puzzle', () => {
     it('should have zeros for every number', () => {
       puzzle.rows.forEach((row) => {
