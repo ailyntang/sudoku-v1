@@ -267,4 +267,29 @@ describe('private functions', () => {
       expect(puzzle.hasValidNumbers(input4)).toBe(false);
     })
   });
-});
+
+  describe('isPuzzleValid()', () => {
+    const invalidPuzzle = new Puzzle([
+                                    [0, 0, 0, 1, 0, 0, 7, 0, 2],
+                                    [0, 3, 7, 9, 5, 0, 0, 0, 0],
+                                    [0, 0, 1, 0, 0, 2, 0, 0, 3],
+                                    [5, 9, 0, 0, 0, 0, 3, 0, 1],
+                                    [0, 2, 0, 1, 0, 0, 0, 7, 0],
+                                    [7, 0, 3, 0, 0, 0, 0, 9, 8],
+                                    [8, 0, 0, 2, 0, 0, 1, 0, 0],
+                                    [0, 0, 0, 0, 8, 5, 0, 6, 0],
+                                    [6, 0, 5, 0, 0, 9, 0, 0, 0]
+                                    ]);
+
+    it('should return true for a puzzle with valid numbers for each row, column and house', () => {
+      expect(incompletePuzzle.isPuzzleValid()).toBe(true);
+    });
+
+    it('should return false for a puzzle with invalid numbers present', () => {
+      expect(invalidPuzzle.isPuzzleValid()).toBe(false);
+    });
+
+    it('should return true for a complete puzzle', () => {
+      expect(completedPuzzle.isPuzzleValid()).toBe(true);
+    });
+  });
