@@ -227,8 +227,18 @@ describe('frequencyOfValues()', () => {
   });
 });
 
-xdescribe('hasValidNumbers()', () => {
+describe('hasValidNumbers()', () => {
   let puzzle = new Puzzle();
+
+  it('should have nine elements in the array', () => {
+    const input1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const input2 = [2, 4];
+    const input3 = [5, 9, 0, 0, 0, 0, 3, 0, 1, 0];
+
+    expect(puzzle.hasValidNumbers(input1)).toBe(true);
+    expect(puzzle.hasValidNumbers(input2)).toBe(false);
+    expect(puzzle.hasValidNumbers(input3)).toBe(false);
+  });
 
   it('should return true when numbers 1-9 all appear once', () => {
     const input = [3, 8, 1, 9, 2, 7, 6, 5, 4];
