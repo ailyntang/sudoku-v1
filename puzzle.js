@@ -173,6 +173,21 @@ class Puzzle {
 
     return true;
   }
+
+  isPuzzleValid() {
+    for (let i = 0; i < 9; i += 1) {
+      if (!this.hasValidNumbers(this.rows[i])) {
+        return false;
+      }
+      if (!this.hasValidNumbers(this.columns[i])) {
+        return false;
+      }
+      if (!this.hasValidNumbers(this.houses[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 module.exports = Puzzle;
