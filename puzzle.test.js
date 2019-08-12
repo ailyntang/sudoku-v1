@@ -246,8 +246,11 @@ describe('hasValidNumbers()', () => {
   });
 
   it('should return true when numbers 1-9 occur at most once', () => {
-    const input = [8, 0, 0, 2, 0, 0, 1, 0, 0];
-    expect(puzzle.hasValidNumbers(input)).toBe(true);
+    const input1 = [8, 0, 0, 2, 0, 0, 1, 0, 0];
+    const input2 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    expect(puzzle.hasValidNumbers(input1)).toBe(true);
+    expect(puzzle.hasValidNumbers(input2)).toBe(true);
   });
 
   it('should return false when numbers 1-9 occur more than once', () => {
