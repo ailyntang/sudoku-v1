@@ -160,16 +160,6 @@ describe('a puzzle', () => {
   });
 });
 
-describe('isPuzzleComplete()', () => {
-  it('should return true when 1-9 is in every row, column and house', () => {
-    expect(completedPuzzle.isPuzzleComplete()).toBe(true);
-  });
-
-  it('should return false when 1-9 is not in every row, column and house', () => {
-    expect(incompletePuzzle.isPuzzleComplete()).toBe(false);
-  });
-});
-
 describe('private functions', () => {
   const puzzle = new Puzzle();
 
@@ -262,6 +252,16 @@ describe('private functions', () => {
     })
   });
 
+  describe('isPuzzleComplete()', () => {
+    it('should return true when 1-9 is in every row, column and house', () => {
+      expect(completedPuzzle.isPuzzleComplete()).toBe(true);
+    });
+
+    it('should return false when 1-9 is not in every row, column and house', () => {
+      expect(incompletePuzzle.isPuzzleComplete()).toBe(false);
+    });
+  });
+
   describe('isPuzzleValid()', () => {
     const invalidPuzzle = new Puzzle([
                                     [0, 0, 0, 1, 0, 0, 7, 0, 2],
@@ -287,3 +287,4 @@ describe('private functions', () => {
       expect(completedPuzzle.isPuzzleValid()).toBe(true);
     });
   });
+});
