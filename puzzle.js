@@ -103,6 +103,37 @@ class Puzzle {
     return JSON.stringify(copy) === JSON.stringify(expectedOutput);
   }
 
+  frequencyOfValues(array) {
+    if (!array || array.length == 0) {
+      return {};
+    }
+
+    let uniqueValues = [...new Set(array)];
+    let copyOfInput = [...array];
+    let count = 0;
+    let output = {};
+
+    // Cycle through the unique values in the array
+    for (let i = 0; i < uniqueValues.length; i += 1) {
+      const value = uniqueValues[i];
+      let iValue =  copyOfInput.indexOf(value);
+
+      // Look for the value in the remainder of the array until the value is no longer found
+      while (iValue != -1) {
+        count += 1;
+        copyOfInput = copyOfInput.slice(iValue + 1);
+        iValue = copyOfInput.indexOf(value);
+      }
+      output[value] = count;
+
+      // Reset the count and array to start counting for the next unique value
+      count = 0;
+      copyOfInput = [...array];
+    }
+
+    return output;
+  }
+
 }
 
 module.exports = Puzzle;
