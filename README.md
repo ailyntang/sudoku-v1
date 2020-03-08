@@ -27,7 +27,7 @@ Further, I think most of them should be private functions. I've researched this 
 Implementation options:
 * MVP: Enter in the puzzle manually
 
-* Gold standard: OCR / image recognition reader. That way a user could upload a photo of a partially finished sudoku puzzle from my photo library.
+* Gold standard: OCR / image recognition reader. That way a user could upload a photo of a partially finished sudoku puzzle from my photo library. Look into [Apple's VisionKit library.](https://developer.apple.com/videos/play/wwdc2019/234/)
 
 
 **As a user who is stuck on a puzzle**
